@@ -1,0 +1,123 @@
+---
+title: "高級中等學校學歷就職之探討"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: scroll
+    
+    
+---
+
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(plotly)
+```
+
+
+
+Inputs {.sidebar}
+------------------
+#### <strong>高中畢業生低薪危機</strong>
+
+##### 1. 高中畢業生未升學率及就業率
+  * <strong>近年來，已有一定比例的高中畢業生選擇不繼續升學，轉而直接就業，</strong>
+
+##### 2. 薪資排序-按教育程度分
+
+  * <strong>但是，持著高中學歷的初任人員卻只能接受22K低薪。</strong>
+ 
+##### 3. 105學年高中畢業生就業職業別佔比
+  * <strong>高中畢業生低薪危機可能與其所從事的職業別相關。</strong>
+  <br/> <br/>
+> <font size="2">高中畢業生職業別前五名
+    * 1.住宿及餐飲業 
+    * 2.製造業
+    * 3.專業科學及技術服務業
+    * 4.批發及零售業
+    * 5.藝術、娛樂及休閒服務業</font>
+   
+##### 4. 105年每人每月經常性薪資排序-按職業別分
+  * <strong>除了<I>專業科學及技術服務業</I>外，高中畢業生職業別前五名的薪資排序都位於後段班。</strong>
+  
+  
+##### 資料來源
+ <a href="https://www.edu.tw/News_Content.aspx?n=829446EED325AD02&sms=26FB481681F7B203&s=1547C271DEDAE960" target="_blank">教育部全球資訊網</a> <br/>
+ 
+ <a href="http://statdb.mol.gov.tw/statis/jspProxy.aspx?sys=210&kind=21&type=1&funid=q19031&rdm=ilcebfql"target="_blank">勞動統計查詢網網</a> <br/>
+ 
+ <a href="https://earnings.dgbas.gov.tw"target="_blank">行政院主計處 薪情平台</a>
+ 
+ 
+ 
+ 
+
+Row {data-height=450}
+-----------------------------------------------------------------------
+
+### 1. 高級中等學校應屆畢業生 未升學率及就業率 
+
+```{r}
+Sys.setenv("plotly_username"="TmIHsun")
+Sys.setenv("plotly_api_key"="IUhO5cwEouHkSlZaBt9d")
+```
+
+```{r }
+#https://plot.ly/~TmIHsun/34
+api_download_plot("34","TmIHsun") ->p1
+p1[["x"]][["layout"]][["autosize"]]<-T #允許autoresize
+p1[["x"]][["layout"]][["height"]]<-c() # 取消限高
+p1[["x"]][["layout"]][["width"]]<-c() # 取消限寛
+
+p1 -> pPlotly1
+pPlotly1
+```
+
+### 2.  初任人員每人每月經常性薪資－按教育程度分
+
+```{r }
+#https://plot.ly/~TmIHsun/48
+api_download_plot("48","TmIHsun") ->p2
+p2[["x"]][["layout"]][["autosize"]]<-T #允許autoresize
+p2[["x"]][["layout"]][["height"]]<-c() # 取消限高
+p2[["x"]][["layout"]][["width"]]<-c() # 取消限寛
+
+p2-> pPlotly2
+pPlotly2
+```
+
+
+
+
+Row {data-height=500}
+----------------------
+
+### 3.  105學年高級中等學校畢業生就業職業別佔比
+```{r }
+#https://plot.ly/~TmIHsun/50
+api_download_plot("50","TmIHsun") ->p3
+p3[["x"]][["layout"]][["autosize"]]<-T #允許autoresize
+p3[["x"]][["layout"]][["height"]]<-c() # 取消限高
+p3[["x"]][["layout"]][["width"]]<-c() # 取消限寛
+
+p3-> pPlotly3
+pPlotly3
+```
+
+### 4.  105年每人每月經常性薪資(新臺幣元)-按職業別分
+
+```{r }
+#https://plot.ly/~TmIHsun/53
+api_download_plot("53","TmIHsun") ->p4
+p4[["x"]][["layout"]][["autosize"]]<-T #允許autoresize
+p4[["x"]][["layout"]][["height"]]<-c() # 取消限高
+p4[["x"]][["layout"]][["width"]]<-c() # 取消限寛
+
+p4-> pPlotly4
+pPlotly4
+
+```
+
+
+
+
